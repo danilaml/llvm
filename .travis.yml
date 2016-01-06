@@ -11,3 +11,7 @@ compiler:
 script:
  - cmake
  - make -j 4
+ 
+after_success:
+ - cat ./cmake/modules/CMakeFiles/LLVMConfig.cmake
+ - ls .
