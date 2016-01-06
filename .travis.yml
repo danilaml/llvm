@@ -1,0 +1,13 @@
+language: cpp
+
+os:
+ - osx
+ 
+osx_image: xcode6.4
+
+compiler:
+ - clang
+ 
+script:
+ - cmake
+ - make -j 4
