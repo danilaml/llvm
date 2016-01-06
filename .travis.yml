@@ -13,7 +13,7 @@ before_script:
  - cd build
  
 script:
- - cmake ..
+ - cmake -DCMAKE_BUILD_TYPE=Release ..
  - make -j 4
  
 after_success:
