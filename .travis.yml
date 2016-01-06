@@ -9,7 +9,7 @@ compiler:
  - clang
  
 script:
- - cmake
+ - cmake .
  - make -j 4
  
 after_success:
