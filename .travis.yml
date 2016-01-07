@@ -14,8 +14,7 @@ before_script:
  
 script:
  - cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 ..
- - make -j 4
+ - make -j4
  
 after_success:
  - cat ./cmake/modules/CMakeFiles/LLVMConfig.cmake
- - ls */
