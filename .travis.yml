@@ -9,11 +9,11 @@ compiler:
  - clang
  
 before_script:
- - mkdir build
- - cd build
+# - mkdir build
+# - cd build
  
 script:
- - cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 ..
+# - cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 ..
  - make -j4
  
 after_success:
