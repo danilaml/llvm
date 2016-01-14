@@ -14,7 +14,7 @@ before_script:
  
 script:
 # - cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=X86 ..
- - ../configure --prefix=/usr/local/Cellar/llvm37/3.7.0/lib/llvm-3.7 --enable-optimized --disable-bindings --enable-targets=host --enable-shared --enable-libffi
+ - ../configure --enable-optimized --disable-bindings --enable-targets=host --enable-shared --enable-libffi
  - make -j4
  
 after_success:
