@@ -19,7 +19,7 @@ script:
  
 after_success:
 # - cat ./cmake/modules/CMakeFiles/LLVMConfig.cmake
-# - cat ../cmake/modules/CMakeFiles/LLVMConfig.cmake
- - find / -name 'LLVMConfig.cmake'
- - cd cmake/modules/CMakeFiles
+ - cat ./cmake/modules/LLVMConfig.cmake
+ - find ./ -name 'LLVMConfig.cmake'
+ - cd cmake/modules
  - ls */
