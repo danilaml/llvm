@@ -20,3 +20,10 @@ script:
  
 after_success:
  - cat ./cmake/modules/LLVMConfig.cmake
+ 
+addons:
+  apt:
+    sources:
+    - llvm-toolchain-precise-3.6
+    packages:
+    - clang-3.6
