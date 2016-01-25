@@ -82,8 +82,7 @@ $(PROJ_OBJ_DIR)/LLVMConfig.cmake: LLVMConfig.cmake.in Makefile $(LLVMBuildCMakeF
 	$(Verb) ( \
 	 cat $< | sed \
 	  -e 's/@LLVM_CONFIG_CODE@/$(LLVM_CONFIG_CODE)/' \
-	  -e 's/\\n/\
-/g' \
+	  -e 's/\n/\'$'\n/g'
 	  -e 's/@LLVM_VERSION_MAJOR@/'"$(LLVM_VERSION_MAJOR)"'/' \
 	  -e 's/@LLVM_VERSION_MINOR@/'"$(LLVM_VERSION_MINOR)"'/' \
 	  -e 's/@LLVM_VERSION_PATCH@/'"$(LLVM_VERSION_PATCH)"'/' \
