@@ -60,11 +60,16 @@ endif
 
 OBJMODS := LLVMConfig.cmake LLVMConfigVersion.cmake LLVMExports.cmake
 
+define \n
+
+
+endef
+
 LLVM_CONFIG_CODE := \
-\# Compute the CMake directory from the LLVMConfig.cmake file location.\n\
-get_filename_component(_LLVM_CMAKE_DIR "$${CMAKE_CURRENT_LIST_FILE}" PATH)\n\
-\# Compute the installation prefix from the LLVMConfig.cmake file location.\n\
-get_filename_component(LLVM_INSTALL_PREFIX "$${CMAKE_CURRENT_LIST_FILE}" PATH)\n
+\# Compute the CMake directory from the LLVMConfig.cmake file location.${\n}\
+get_filename_component(_LLVM_CMAKE_DIR "$${CMAKE_CURRENT_LIST_FILE}" PATH)${\n}\
+\# Compute the installation prefix from the LLVMConfig.cmake file location.${\n}\
+get_filename_component(LLVM_INSTALL_PREFIX "$${CMAKE_CURRENT_LIST_FILE}" PATH)${\n}
 
 # Compute number of levels (typically 3 - ``share/llvm/cmake/``) to PROJ_prefix
 # from PROJ_cmake, then emit the appropriate number of calls to
@@ -72,7 +77,7 @@ get_filename_component(LLVM_INSTALL_PREFIX "$${CMAKE_CURRENT_LIST_FILE}" PATH)\n
 # cmake_path_suffix variable.
 cmake_path_suffix := $(subst $(PROJ_prefix),,$(subst $(DESTDIR),,$(PROJ_cmake)))
 cmake_path_dirs := $(subst /, ,$(cmake_path_suffix))
-LLVM_CONFIG_CODE += $(foreach __not_used,$(cmake_path_dirs),get_filename_component(LLVM_INSTALL_PREFIX "$${LLVM_INSTALL_PREFIX}" PATH)\n)
+LLVM_CONFIG_CODE += $(foreach __not_used,$(cmake_path_dirs),get_filename_component(LLVM_INSTALL_PREFIX "$${LLVM_INSTALL_PREFIX}" PATH)${\n})
 
 LLVM_CONFIG_CODE += set(_LLVM_LIBRARY_DIR "$${LLVM_INSTALL_PREFIX}\/lib")
 
