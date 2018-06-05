@@ -128,6 +128,8 @@ struct Conflicts : public ModulePass {
     InsertProfilingInitCall(Main, "llvm_start_conflict_profiling", NumCalls);
     return true;
   }
+
+  StringRef getPassName() const override { return "Conflicts Profiler"; }
 };
 } // namespace
 
